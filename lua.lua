@@ -209,6 +209,7 @@ end
 ]]--
 
 -- 10. table(类似于字典)
+--[[
 m_MyTable = {}
 m_MyTable[1] = "lua"
 m_MyTable["666"] = "666lua"
@@ -248,7 +249,50 @@ print(nima[2]) --熊小妹
 nima[1] = "嘿嘿"
 print(nima[1])--嘿嘿
 
+print("最大值是:".. nima[table.maxn(nima)]) -- table.maxn(nima)表里最大的ASCII对应的值
+
+table.sort(nima) -- 排序
+
+for i= 1,#nima do
+print(nima[i]) --嘿嘿 熊孩子 熊小妹 熊悠悠
+end
+
+]]--
+
+-- 11. 方法
+
+--[[
+CaculateClass = {}
+local this = CaculateClass
+CaculateClass.m_Name = "老王"
+function CaculateClass.MyPlus(numA,numB)
+ return numA + numB
+ end
+ print("MyPlus的运算结果是:" .. CaculateClass.MyPlus(50,40))
+
+ function CaculateClass.MyMax(A,B,C)
+  return math.max(A,B,C)
+end
+print("MyMax的运算结果是:".. CaculateClass.MyMax(2,5,1))
+
+function CaculateClass.MM()
+ print(this.m_Name)
+ end
+print(CaculateClass.MM())
+
+]]--
 
 
+-- 12. 委托
+DelegateClass = {}
+this = DelegateClass
+DelegateClass.Print = function(str)
+ print(str)
+end
 
+DelegateClass.TestMethod = function(num1,num2,PrintFunc)
+local num =num1 *num2
+PrintFunc(num .."将方法作为参数传递进去")
+end
 
+DelegateClass.TestMethod(11,10,DelegateClass.Print)
