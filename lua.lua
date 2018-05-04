@@ -13,10 +13,10 @@ print(string.format("%q",a))
 
 -- 5. 六种基本数据类型(nil,number,string,boolean,table,function)
 --[[
-m_Name = "国帅"
-m_Age = 23
-m_Score = 429.5
-m_isFinish = false
+m_Name = "国帅" --string
+m_Age = 23 -- number
+m_Score = 429.5 -- number
+m_isFinish = false -- boolean
 print(m_Name.."年龄"..m_Age.."考了"..m_Score.."分")
 
 -- 5.1 lua中数组下标从1开始
@@ -33,7 +33,7 @@ print(type(m_Array)) -- table
 print(type(m_isFinish)) --boolean
 --print(type(m_isFin)) -- nil
 
--- 5.4 function
+-- 5.4 function end
 m_Fun = function()
 print("哈哈哈")
 end
@@ -262,22 +262,25 @@ end
 -- 11. 方法
 
 --[[
-CaculateClass = {}
+CaculateClass = {} --类
 local this = CaculateClass
 CaculateClass.m_Name = "老王"
 function CaculateClass.MyPlus(numA,numB)
  return numA + numB
  end
+
  print("MyPlus的运算结果是:" .. CaculateClass.MyPlus(50,40))
 
  function CaculateClass.MyMax(A,B,C)
   return math.max(A,B,C)
 end
+
 print("MyMax的运算结果是:".. CaculateClass.MyMax(2,5,1))
 
 function CaculateClass.MM()
  print(this.m_Name)
  end
+
 print(CaculateClass.MM())
 
 ]]--
@@ -296,3 +299,26 @@ PrintFunc(num .."将方法作为参数传递进去")
 end
 
 DelegateClass.TestMethod(11,10,DelegateClass.Print)
+
+-- string.find
+hh = "尼玛"
+print(string.find(hh,"尼")) --1	2
+print(string.find("leilei","i")) --3 3
+
+--多个返回值的函数
+MoreValue = function()
+return 12,"帅",10.2,false
+end
+
+--print(MoreValue()) --12	帅	10.2	false
+
+age,name,height,isMarry = MoreValue()
+print("名字是:".. name)
+print("身高是:".. height)
+
+-- 可变参数的函数[类似C#中params]
+MoreArg = function(...)
+print(...)
+end
+
+MoreArg(15,666,"咋地",true)--15	666	咋地 true
