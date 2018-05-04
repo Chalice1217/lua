@@ -287,6 +287,7 @@ print(CaculateClass.MM())
 
 
 -- 12. 委托
+--[[
 DelegateClass = {}
 this = DelegateClass
 DelegateClass.Print = function(str)
@@ -322,3 +323,50 @@ print(...)
 end
 
 MoreArg(15,666,"咋地",true)--15	666	咋地 true
+--]]
+
+
+-- 13 迭代器[类似C#中foreach]
+--[[
+m_TableArr = {"羞羞","奥西华","飞档","霸气就",555}
+m_TableDic = {}
+m_TableDic[1] = "字典"
+m_TableDic[22] = "字典22"
+m_TableDic[85] = "字典85"
+
+--13.1 ipairs 只能遍历索引是1开始的递增连续索引值[索引升序规律的数组][1,2,3...]
+-- 不能1,3,4这种,必须要连续
+for k,v in ipairs(m_TableArr) do
+print(k,v,string.byte(v))
+end
+
+-- 13.2 pairs 只要是table集合都可以遍历,跟foreach一样
+
+for k,v in pairs(m_TableDic) do
+print(k,v,string.byte(v))
+end
+
+
+for k,v in pairs(m_TableArr) do
+print(k,v,string.byte(v))
+end
+
+--]]
+
+-- 14 lua面向对象
+--[[
+Enemy = {}
+local this = Enemy
+
+Enemy.m_Hp = 100
+Enemy.m_Speed = 20
+
+Enemy.Move = function()
+print("enemy移动中...")
+end
+
+function Enemy.Attack()
+print ("敌人血量为 :".. this.m_Hp)
+end
+
+--]]
