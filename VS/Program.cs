@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LuaInterface;
 /// <summary>
+/// C#调Lua
 /// 操作步骤 :
 /// 1. 打开VS,Ctr + Shift + N ,选择控制台应用
 /// 2. 解决方案 - 右击LuaInterface(你自己取得项目名) - 在文件资源管理器中打开文件夹(X) - 把LuaInterface.dll ,luanet.dll,lua51.dll拉进来
@@ -16,6 +12,7 @@ namespace LuaInterface
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
             
@@ -49,8 +46,7 @@ namespace LuaInterface
             object[] result = lua.DoString("return str, account");
             foreach (object item in result)
             {
-                Console.WriteLine(item);
-               
+                Console.WriteLine(item);              
             }
 
 
@@ -100,6 +96,51 @@ namespace LuaInterface
 
 
     }
+
+   public class LuaDiaoC
+    {
+        public string m_Name = "Lua调C#字段";
+        public static string m_StaticName = "lua调用C#静态字段";
+        
+        public void Method()
+        {
+            Console.WriteLine("Lua调C#方法");
+        }
+
+        public static void StaticMethod()
+        {
+            Console.WriteLine("Lua调C#静态方法");
+        }
+
+        // ref 和 out 
+
+            // 带out关键字,不管该方法有没有返回值,都会返回len出去
+        public void OutMethod(string str,out int len)
+        {
+            Console.WriteLine(str);
+            len = str.Length;
+        }
+
+        public void RefMethod(string str, ref int len)
+        {
+            Console.WriteLine(str);
+            len = str.Length;
+        }
+
+
+        // 返回多个参数的方法
+        public string ParamsMethod(int a, out float b,out double c ,out string d)
+        {
+            b = 3.14f;
+            c = 666;
+            d = "多个返回值!";
+            return a.ToString();
+        }
+
+    }
+
+
+
 }
     
 

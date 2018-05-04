@@ -1,4 +1,4 @@
---[[
+
 -- 1. 不用在末尾加分号
 print("asdfasd")
 
@@ -6,9 +6,12 @@ print("asdfasd")
 print("你好" .. "lua")
 
 -- 3. lua字符串格式化
-a = 'aadsdf\"'
-print(string.format("%q",a))
-]]--
+str = "aadsdflxjhcnc"
+print(string.upper(str))
+print(string.find())
+
+--print(string.format("%q",a))
+
 -- 4. --[[ ]]-- 多行注释
 
 -- 5. 六种基本数据类型(nil,number,string,boolean,table,function)
@@ -370,3 +373,21 @@ print ("敌人血量为 :".. this.m_Hp)
 end
 
 --]]
+
+
+
+
+-- 15 Lua调C#
+--[[
+luanet.Load assembly("System")
+
+--实例化CLR对象 , 指定该命名空间下的类
+Int32 = luanet.import_type("System.Int32")
+
+--使用该类的方法和属性
+num = Int32.Parse("666")
+print(Int32)
+print(num)
+
+]]--
+
