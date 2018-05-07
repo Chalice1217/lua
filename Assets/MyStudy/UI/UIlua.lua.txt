@@ -1,8 +1,21 @@
-﻿function awake()
+﻿--[[function awake()
 print("这是Lua里awake方法!")
 self.transform:GetComponent("Button").onClick:AddListener(function()
 print("你输入了 '".. input:GetComponent("InputField").text .. "'")
 
 end )
 
+end 
+]]--
+
+function awake()
+print("这是Lua里awake方法!")
+self.transform:GetComponent("Button").onClick:AddListener(ShowInfo)
+
+end
+
+function ShowInfo()
+local ta = input:GetComponent("InputField").text
+show:GetComponent("Text").text = "您输入了： '" .. ta .. "'"
+print("您输入了: '"..show:GetComponent("Text").text .."'")
 end 

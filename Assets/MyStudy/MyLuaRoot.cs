@@ -70,7 +70,7 @@ public class MyLuaRoot : MonoBehaviour
         if (Time.time - timer > timeCD)
         {
             luaEnv.Tick();
-            timer = Time.deltaTime;
+            timer = Time.time;
         }
     }
 
