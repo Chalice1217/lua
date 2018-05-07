@@ -1,14 +1,42 @@
 
+--http://www.runoob.com/lua/lua-tutorial.html
+
 -- 1. 不用在末尾加分号
 print("asdfasd")
 
 -- 2. 字符串拼接用 ..
 print("你好" .. "lua")
 
--- 3. lua字符串格式化
+-- 3. lua字符串
+
+--3.1 大小写转换
 str = "aadsdflxjhcnc"
 print(string.upper(str))
-print(string.find())
+print(string.lower(str))
+
+--3.2 Lua字符串 单引号,双引号,[[]],都可以
+
+print("\"字符串1是\"",str)
+
+str2 = 'guoshuai'
+print("\"字符串2是\"",str2)
+
+str3 = [["Lua嘿嘿嘿"]]
+print("\"字符串3是\"",str3)
+
+--3.3 字符串查找和反转
+str4 = "Luabcxsd"
+strFind = string.find(str4,'xsd',1)
+print("\"字符串查找\"",strFind) --"字符串查找"	6
+
+reversedStr = string.reverse(str4)
+print("\"字符串反转\"",reversedStr) --"字符串反转"	dsxcbauL
+
+--3.4 字符串替换
+print("\"字符串替换\"",string.gsub("shuai","s","S",1))
+
+-- 3.5字符串格式化
+print(string.format("the value is: %d",4))
 
 --print(string.format("%q",a))
 
