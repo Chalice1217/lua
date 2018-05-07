@@ -1,0 +1,23 @@
+﻿local speed = 10
+local li = nil
+local sp = nil
+function awake()
+print ("这是Lua里的awake方法!")
+end
+
+function start()
+print("这是Lua里的start方法!")
+li= light:GetComponent(typeof(CS.UnityEngine.Light))
+sp= Sphere:GetComponent(typeof(CS.UnityEngine.Transform))
+
+end 
+
+function update()
+	local r = CS.UnityEngine.Vector3.up * CS.UnityEngine.Time.deltaTime * speed
+	self.transform:Rotate(r)
+	li.color = CS.UnityEngine.Color(CS.UnityEngine.Mathf.Sin(CS.UnityEngine.Time.time) / 2 + 0.5, 0, 0.5, 1)
+	sp.transform:Rotate(r*10)
+end
+function destory()
+print("这是Lua里的destroy方法!")
+end 

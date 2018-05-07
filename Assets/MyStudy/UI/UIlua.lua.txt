@@ -1,0 +1,8 @@
+﻿function awake()
+print("这是Lua里awake方法!")
+self.transform:GetComponent("Button").onClick:AddListener(function()
+print("你输入了 '".. input:GetComponent("InputField").text .. "'")
+
+end )
+
+end 
