@@ -50,7 +50,6 @@ public class MyLuaRoot : MonoBehaviour
         {
             luaAwake();
         }
-        
     }
 
     private void Start()
